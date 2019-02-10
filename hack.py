@@ -8,6 +8,10 @@ import pytesseract
 import cv2
 import numpy as np
 
+''' Locate tesseract exe, if its not in PATH. Even if in PATH it doesn't seem to find it without this line...'''
+#pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
+#pytesseract.pytesseract.tesseract_cmd = '/opt/local/bin/tesseract'
+
 f = open('pride.txt', 'r')
 
 # remove the periods after an honorific so they don't get
@@ -35,13 +39,21 @@ print("found " + str(len(new_arr)) + " sentences")
 ''' load image '''
 img = cv2.imread('temp_02.jpg')
 img = cv2.bitwise_not(img)
-#cv2.imshow('test', img)
-#cv2.waitKey(0)
+cv2.imshow('test', img)
+cv2.waitKey(0)
 ''' pixel which are not black (0) put white (255) '''
 #img[np.where((img!=(0)))] = [255]
-img[np.where((img>(40)))] = [255]
-#cv2.imshow('test', img)
-#cv2.waitKey(0)
+#img[np.where((img>(40)))] = [255]
+
+h = img.shape[0]
+w = img.shape[1]
+for y in range(h):
+    for x in range(w):
+        if img[y,x, 0] > 30 or img[y,x,1] > 30 or img[y,x,2] > 30:
+            img[y,x] = (255,255,255)
+
+cv2.imshow('test', img)
+cv2.waitKey(0)
 ''' Make function. use Tesseract to extracts strings from images '''
 
 

@@ -39,8 +39,8 @@ print("found " + str(len(new_arr)) + " sentences")
 ''' load image '''
 img = cv2.imread('temp_02.jpg')
 img = cv2.bitwise_not(img)
-cv2.imshow('test', img)
-cv2.waitKey(0)
+#cv2.imshow('test', img)
+#cv2.waitKey(0)
 ''' pixel which are not black (0) put white (255) '''
 #img[np.where((img!=(0)))] = [255]
 #img[np.where((img>(40)))] = [255]
@@ -52,8 +52,8 @@ for y in range(h):
         if img[y,x, 0] > 30 or img[y,x,1] > 30 or img[y,x,2] > 30:
             img[y,x] = (255,255,255)
 
-cv2.imshow('test', img)
-cv2.waitKey(0)
+#cv2.imshow('test', img)
+#cv2.waitKey(0)
 ''' Make function. use Tesseract to extracts strings from images '''
 
 

@@ -15,6 +15,7 @@ import numpy as np
 #before img = cv2.bitwise_not(img)
 user_input = input("Filename path:")
 img = cv2.imread(user_input)
+user_inputout=input("Output picture:")
 
 f = open('pride.txt', 'r')
 
@@ -99,7 +100,7 @@ for a in related_docs_indices:
         if offset != -1:
             meme_text_top = meme_text[0: offset]
             meme_text_bottom = meme_text[offset + 1:]
-    memegenerator.make_meme(meme_text_top, meme_text_bottom, "aliens.jpg", "out" + str(count) + ".jpg")
+    memegenerator.make_meme(meme_text_top, meme_text_bottom, user_inputout, "out" + str(count) + ".jpg")
     count+=1
     # arbitrarily stop after generating 5 images so we don't make too many
     if count > 5:

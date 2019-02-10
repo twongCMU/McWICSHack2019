@@ -8,7 +8,7 @@ import pytesseract
 import cv2
 import numpy as np
 
-f = open('/home/tw/pride.txt', 'r')
+f = open('pride.txt', 'r')
 
 # remove the periods after an honorific so they don't get
 # interpreted as a sentence delimiter and split apart
@@ -33,7 +33,7 @@ print("found " + str(len(new_arr)) + " sentences")
 #new_arr.append("I are serious cat. Please you step into my office now")
 
 ''' load image '''
-img = cv2.imread('/home/tw/temp_02.jpg')
+img = cv2.imread('temp_02.jpg')
 img = cv2.bitwise_not(img)
 #cv2.imshow('test', img)
 #cv2.waitKey(0)

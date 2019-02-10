@@ -12,6 +12,10 @@ import numpy as np
 #pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files (x86)/Tesseract-OCR/tesseract.exe'
 #pytesseract.pytesseract.tesseract_cmd = '/opt/local/bin/tesseract'
 
+#before img = cv2.bitwise_not(img)
+user_input = input("Filename path:")
+img = cv2.imread(user_input)
+
 f = open('pride.txt', 'r')
 
 # remove the periods after an honorific so they don't get
@@ -37,7 +41,7 @@ print("found " + str(len(new_arr)) + " sentences")
 #new_arr.append("I are serious cat. Please you step into my office now")
 
 ''' load image '''
-img = cv2.imread('temp_02.jpg')
+#img = cv2.imread('temp_02.jpg')
 img = cv2.bitwise_not(img)
 #cv2.imshow('test', img)
 #cv2.waitKey(0)
